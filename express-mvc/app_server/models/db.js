@@ -1,5 +1,5 @@
 let mongoose = require("mongoose");
-let dbURI = "mongodb://localhost:27017/Server Matkul PAW2";
+let dbURI = "mongodb://localhost:27017/"
 
 mongoose.connect (dbURI, {
     //useNewUrlParser: true
@@ -15,6 +15,7 @@ mongoose.connection.on("disconnected",()=>{
 
 });
 
-
+//your db connection
+require("./mahasiswa");
 
 

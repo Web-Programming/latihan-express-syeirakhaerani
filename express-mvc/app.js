@@ -8,6 +8,8 @@ require('./app_server/models/db');
 
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
+// impor modul mahasiswa router
+var mhsController = require('./app_server/routes/mahasiswa');
 
 var app = express();
 
@@ -20,6 +22,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/mahasiswa', mhsController);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
