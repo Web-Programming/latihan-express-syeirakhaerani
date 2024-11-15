@@ -6,9 +6,18 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-details',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './details.component.html',
+  template: `
+    <p>
+      details works {{ housingLocationId }}
+    </p>
+  `,
   styleUrl: './details.component.css'
 })
 export class DetailsComponent {
+  route: ActivatedRoute = inject(ActivatedRoute);
+  housingLocationId = 0;
 
+  constructor() {
+    this.housingLocationId = Number(this.route.snapshot.params['id'])
+  }
 }
